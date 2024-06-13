@@ -78,7 +78,7 @@ double Trailer::calculateParkingFee(double daysinBond, double parkingFeePerDay) 
 
 double Trailer::getFinalPrice() {
     double infrastructureLevyFee, transportationModeFee, daysinBond, parkingFeePerDay, totalTaxes, importDutyFee, valueAddedTaxFee,
-           witholdingTaxFee, infrastructureLevyFee, seatingCapacityFee,  grossWeightFee, engineCapacityFee;
+           witholdingTaxFee, seatingCapacityFee,  grossWeightFee, engineCapacityFee;
     double importDuty, valueAddedTax, witholdingTax, seatingCapacity, grossWeight, engineCapacity;
 
         importDutyFee = calculateImportDutyFee(importDuty, costInsuranceFreight);

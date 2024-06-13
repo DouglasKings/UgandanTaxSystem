@@ -38,6 +38,11 @@ public:
     // Method to display detailed information about the vehicle
     void Display(); 
 
+      // Override the pure virtual function getDetails()
+    void getDetails() override {
+        std::cout << "Displaying UserInfo details..." << std::endl;
+    }
+
 }; // End of userInfo class definition
 
 #endif // UserInfo_H

@@ -1,29 +1,45 @@
+#include <iostream>
+#include <iomanip>
+
+#include "UserInfo.h"
+#include "Vehicle.h"
+
+
 // Implementation of the Display method for userInfo class
 void UserInfo::Display() {
+    int vehicleType = 0; // Initialize variable to avoid undefined behavior
+    double Age = 0, grossWeight = 0, engineCapacity = 0, seatingCapacity = 0, costInsuranceFreight = 0, plateSystem, totalTaxes = 0,
+    transportationMode = 0, daysInBond = 0;
+    double stampDuty = 35000, formFees = 20000, exciseDuty = 200000, importDutyFee, valueAddedTaxFee, witholdingTaxFee, 
+    infrastructureLevyFee, seatingCapacityFee, grossWeightFee, engineCapacityFee, transportationModeFee, parkingFee;
+
+    Vehicle* vehicleInstance = nullptr;
+
     // Checking the type of vehicle and call the corresponding constructor
-    if(vehicleType == 1) { 
-        Ambulance(Type, Age, costInsuranceFreight, transportationMode, daysInBond, plateSystem); // Assuming Ambulance is another class
-        vehicleInstance.getDetails(); // Getting details of the ambulance instance
+       if(vehicleType == 1) { 
+        vehicleInstance = new Ambulance(vehicleType, Age, costInsuranceFreight, transportationMode, daysInBond, plateSystem);
     } 
     else if(vehicleType == 2) { 
-        Estate(Type, Age, costInsuranceFreight, transportationMode, daysInBond, seatingCapacity, engineCapacity, grossWeight, plateSystem);
-        vehicleInstance.getDetails(); // Getting details of the estate instance
+        vehicleInstance = new Estate(vehicleType, Age, costInsuranceFreight, transportationMode, daysInBond, seatingCapacity, engineCapacity, grossWeight, plateSystem);
     } 
     else if(vehicleType == 3) { 
-        Sedan(Type, Age, costInsuranceFreight, transportationMode, daysInBond, plateSystem, engineCapacity, grossWeight);
-        vehicleInstance.getDetails(); // Getting details of the sedan instance
+        vehicleInstance = new Sedan(vehicleType, Age, costInsuranceFreight, transportationMode, daysInBond, plateSystem, engineCapacity, grossWeight);
     }
     else if(vehicleType == 4) { 
-        SUV(Type, Age, costInsuranceFreight, transportationMode, daysInBond, seatingCapacity, engineCapacity, grossWeight, plateSystem);
-        vehicleInstance.getDetails(); // Getting details of the SUV instance
+        vehicleInstance = new SUV(vehicleType, Age, costInsuranceFreight, transportationMode, daysInBond, seatingCapacity, engineCapacity, grossWeight, plateSystem);
     }
     else if(vehicleType == 5) { 
-        Trailer(Type, Age, costInsuranceFreight, transportationMode, daysInBond, seatingCapacity, engineCapacity, grossWeight, plateSystem);
-        vehicleInstance.getDetails(); // Getting details of the trailer instance
+        vehicleInstance = new Trailer(vehicleType, Age, costInsuranceFreight, transportationMode, daysInBond, seatingCapacity, engineCapacity, grossWeight, plateSystem);
     }
     else {
         throw std::runtime_error("Invalid vehicle type."); // Throwing exception for invalid vehicle types
     }
+
+    if(vehicleInstance != nullptr) {
+        vehicleInstance->getDetails(); // Getting details of the vehicle instance
+        delete vehicleInstance; // Clean up memory to avoid leaks
+    }
+
 
     // Display various vehicle details
     std::cout << "\n Type of vehicle is" << vehicleType <<'\n';

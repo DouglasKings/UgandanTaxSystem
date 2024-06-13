@@ -16,10 +16,12 @@
 
 int main() {
     int vehicleType = 0; // Initialize variable to avoid undefined behavior
-    double Age = 0, grossWeight = 0, engineCapacity = 0, seatingCapacity = 0, costInsuranceFreight = 0, plateSystem, totalTaxes = 0, transportationMode = 0, daysInBond = 0;
-    double stampDuty = 35000, formFees = 20000, exciseDuty = 200000, infrastructureLevyFee = 150000, importDuty = 0.25, valueAddedTax = 0.18, withholdingTax = 0.06, currentYear = 2024, carAgeFee = 0, parkingFeePerDay = 15000;
+    double Age = 0, grossWeight = 0, engineCapacity = 0, seatingCapacity = 0, costInsuranceFreight = 0, plateSystem, totalTaxes = 0,
+    transportationMode = 0, daysInBond = 0, stampDuty = 35000, formFees = 20000, exciseDuty = 200000, infrastructureLevyFee = 150000,
+    importDuty = 0.25, valueAddedTax = 0.18, withholdingTax = 0.06, currentYear = 2024, carAgeFee = 0, parkingFeePerDay = 15000;
 
-    double importDutyFee, valueAddedTaxFee, withholdingTaxFee, grossWeightFee, engineCapacityFee, transportationFee, parkingFee, seatingCapacityFee;
+    double importDutyFee, valueAddedTaxFee, withholdingTaxFee, grossWeightFee, engineCapacityFee, transportationFee, parkingFee,
+    seatingCapacityFee;
 
     do {
         std::cout << "Enter the Vehicle Type (e.g 1 for Ambulance, 2 for Estate, 3 for Sedan, 4 for Sports Utility Vehicle(SUV) & 5 for Trailer): ";
@@ -50,7 +52,7 @@ int main() {
     std::cin >> Age;
     std::cout << "Age is: " << std::fixed << std::setprecision(2) << Age << "\n";
 
-    double plateSystem = 0; // Initialize variable to avoid undefined behavior
+    plateSystem = 0; // Initialize variable to avoid undefined behavior
 
     do {
         std::cout << "Enter plate system (Analog Plate System (300000) or Digital Plate System (700000), Ambulance & Sedan is DPS, SUV is APS): ";
@@ -82,11 +84,11 @@ int main() {
     std::cout << "Days in bond is " << std::fixed << std::setprecision(2) << daysInBond << "\n";
 
     // Instantiate userInfo object
-    userInfo userInfo;
+    UserInfo userInfo(vehicleType, Age, grossWeight, engineCapacity, seatingCapacity, costInsuranceFreight, plateSystem, transportationMode, daysInBond);
 
     // Display vehicle details
     try {
-        UserInfo.Display();
+        userInfo.Display();
     } catch (const std::exception& e) {
         std::cerr << "Error: " << e.what() << '\n';
     }

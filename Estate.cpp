@@ -85,7 +85,7 @@ double Estate::calculateParkingFee(double daysinBond, double parkingFeePerDay) {
 // Calculate the final price of the Estate vehicle after applying all taxes and fees.
 double Estate::getFinalPrice() {
     double infrastructureLevyFee, transportationModeFee, daysinBond, parkingFeePerDay, totalTaxes, importDutyFee, valueAddedTaxFee,
-           witholdingTaxFee, infrastructureLevyFee, seatingCapacityFee,  grossWeightFee, engineCapacityFee;
+           witholdingTaxFee, seatingCapacityFee,  grossWeightFee, engineCapacityFee;
     double importDuty, valueAddedTax, witholdingTax, seatingCapacity, grossWeight, engineCapacity;
 
     importDutyFee = calculateImportDutyFee(importDuty, costInsuranceFreight);
