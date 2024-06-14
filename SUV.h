@@ -48,7 +48,6 @@ public:
 
     double getFinalPrice();
 
-    void someMethod();
 };
 
 #endif

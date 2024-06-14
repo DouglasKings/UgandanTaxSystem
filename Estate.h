@@ -46,8 +46,6 @@ public:
     // Method to calculate the final price of the Estate vehicle after applying all taxes and fees.
     double getFinalPrice();
 
-    // Additional method for demonstration purposes.
-    void someMethod();
 };
 
 #endif // Estate_H

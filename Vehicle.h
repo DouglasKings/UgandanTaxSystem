@@ -1,7 +1,7 @@
 #ifndef Vehicle_H
 #define Vehicle_H
 
-// Include necessary libraries for I/O operations, string manipulation, and container types
+// Includes necessary libraries for I/O operations, string manipulation, and container types
 #include <iostream>
 #include <iomanip>
 #include <string>
@@ -10,7 +10,7 @@
 #include <set>
 #include <stdexcept>
 
-// Define the Vehicle class
+// Defines the Vehicle class
 class Vehicle{
 protected:
     // Protected member variables representing different attributes of a vehicle
@@ -30,7 +30,7 @@ public:
 
     // Method to set the type of vehicle, throwing an exception if an invalid option is chosen
     void setvehicleType(int option) {
-        if (option == 1 || option == 2 || option == 3 || option == 4 || option == 5) {
+        if (option >= 1 && option <= 5) { // Ensuring valid range
            vehicleType = option;
         } else {
             throw std::invalid_argument("Invalid option. Please choose between 1 to 5.");

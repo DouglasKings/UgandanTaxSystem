@@ -47,8 +47,7 @@ public:
                             double daysinBond, double parkingFeePerDay, double stampDuty, double formFees, 
                             double exciseDuty, double transportationModeFee);
 
-    // Placeholder method for future functionality
-    void someMethod();
 };
 
 #endif
+

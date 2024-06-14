@@ -1,8 +1,8 @@
-// Header guard to prevent multiple inclusions of the same header file
+// Header guard to prevent multiple inclusions
 #ifndef UserInfo_H
 #define UserInfo_H
 
-// Including necessary libraries and other header files
+// Include necessary headers
 #include "Vehicle.h"
 #include <iostream>
 #include <iomanip>
@@ -13,36 +13,53 @@
 #include <stdexcept>
 #include <limits>
 
-// Forward declaration of classes that will be used later
+// Include headers for specific vehicle types (assuming these exist)
 #include "Ambulance.h"
 #include "Estate.h"
 #include "Sedan.h"
 #include "SUV.h"
 #include "Trailer.h"
 
-// userInfo class definition inheriting from Vehicle class
+// UserInfo class inherits from Vehicle
 class UserInfo : public Vehicle {
 private:
-    // Private member variables
-    int vehicleType, Age; // Type of vehicle and age
-    double costInsuranceFreight, plateSystem, transportationMode, parkingFee, engineCapacity, grossWeight; // Various costs and specifications
+  // Declaring various variables
+  int vehicleType, Age;
+  double costInsuranceFreight, plateSystem, transportationMode, parkingFee, engineCapacity, grossWeight, seatingCapacity, daysInBond;
+
+  // Various tax variables (assuming these are relevant)
+  double stampDuty;
+  double importDutyFee;
+  double valueAddedTaxFee;
+  double withholdingTaxFee;
+  double formFees;
+  double exciseDuty;
+  double infrastructureLevyFee;
+  double seatingCapacityFee;
+  double grossWeightFee;
+  double engineCapacityFee;
+  double transportationModeFee;
+
+  // Total taxes calculated for the vehicle
+  double totalTaxes;
 
 public:
-    // Constructor for userInfo class
-    UserInfo(int Type, int Age, double grossWeight, double engineCapacity, double seatingCapacity, double costInsuranceFreight, double plateSystem,
-             int transportationMode, double daysInBond)
-        : Vehicle(vehicleType, Age, costInsuranceFreight, plateSystem, transportationMode, parkingFee), // Initialize base class members
-          engineCapacity(engineCapacity), grossWeight(grossWeight), // Initialize derived class members
-          vehicleType(Type), Age(Age), costInsuranceFreight(costInsuranceFreight), plateSystem(plateSystem), transportationMode(transportationMode), parkingFee(parkingFee) {}
+  // Constructor to initialize UserInfo object
+  UserInfo(int Type, int Age, double grossWeight, double engineCapacity, double seatingCapacity, double costInsuranceFreight, double plateSystem,
+           int transportationMode, double daysInBond)
+      : Vehicle(Type, Age, costInsuranceFreight, plateSystem, transportationMode, parkingFee),
+        engineCapacity(engineCapacity), grossWeight(grossWeight), seatingCapacity(seatingCapacity),
+        vehicleType(Type), Age(Age), costInsuranceFreight(costInsuranceFreight), plateSystem(plateSystem), transportationMode(transportationMode),
+        parkingFee(parkingFee), daysInBond(daysInBond) {}
 
-    // Method to display detailed information about the vehicle
-    void Display(); 
+  // Function to display user information (likely details about the vehicle)
+  void Display();
 
-      // Override the pure virtual function getDetails()
-    void getDetails() override {
-        std::cout << "Displaying UserInfo details..." << std::endl;
-    }
+  // Override getDetails function from Vehicle class (implementation likely similar to Vehicle's getDetails)
+  void getDetails() override {
+    std::cout << "Displaying UserInfo details..." << std::endl;
+  }
+};
 
-}; // End of userInfo class definition
-
+// End of header guard
 #endif // UserInfo_H

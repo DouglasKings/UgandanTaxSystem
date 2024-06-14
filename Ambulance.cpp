@@ -3,7 +3,7 @@
 
 // Sets the vehicle type within valid options
 void Ambulance::setvehicleType(int option) {
-    if (option == 1 || option == 2 || option == 3 || option == 4 || option == 5) {
+    if (option >= 1 && option <= 5) {
         vehicleType = option;
     } else {
         throw std::invalid_argument("Invalid option. Please choose between 1 to 5.");
@@ -12,8 +12,8 @@ void Ambulance::setvehicleType(int option) {
 
 // Sets the plate system within valid options
 void Ambulance::setplateSystem(double option) {
-    if (option == 1) {
-        plateSystem = option;
+    if (option == 1 || option == 2) {
+        plateSystem = option; // No need to cast to double since option is already a double
     } else {
         throw std::invalid_argument("Invalid option. Please choose 1 or 2.");
     }
@@ -22,7 +22,7 @@ void Ambulance::setplateSystem(double option) {
 // Sets the transportation mode within valid options
 void Ambulance::settransportationMode(double option) {
     if (option == 1 || option == 2) {
-        transportationMode = option;
+        transportationMode = option; // No need to cast to double since option is already a double
     } else {
         throw std::invalid_argument("Invalid option. Please choose 1 or 2.");
     }
@@ -30,6 +30,9 @@ void Ambulance::settransportationMode(double option) {
 
 // Calculates the infrastructure levy fee based on age and insurance freight cost
 double Ambulance::calculateInfrastructureLevyFee(int Age, double costInsuranceFreight) {
+    if (Age < 0) {
+        throw std::invalid_argument("Age cannot be negative.");
+    }
     if (Age >= 10) {
         return 0.15 * costInsuranceFreight; 
     } else {

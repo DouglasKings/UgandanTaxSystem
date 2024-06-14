@@ -59,26 +59,6 @@ double Sedan::calculateInfrastructureLevyFee(int age, double costInsuranceFreigh
     }
 }
 
-/*// Determine the extra fee percentage based on the sedan's age
-    if (age > 15) { // Sedans older than 15 years cannot be imported
-        extraFeePercentage = 0; // No extra fee since they cannot be imported
-    } else if (age >= 10 && age < 15) { // Age between 15 to 10 years
-        extraFeePercentage = 0.10; // Importer pays 10% of the CIF on top of the IL
-    } else if (age >= 5 && age < 10) { // Age between 10 to 5 years
-        extraFeePercentage = 0.05; // Importer pays 5% of the CIF on top of the IL
-    } else if (age < 5) { // Less than 5 years
-        extraFeePercentage = 0.015; // Importer pays 1.5% of the CIF on top of the IL
-    } else {
-        extraFeePercentage = 0; // Default case, no extra fee
-    }
-
-    // Calculate the extra fee based on the CIF and the determined percentage
-    extraFee = costInsuranceFreight * extraFeePercentage;
-
-    // Return the sum of the standard infrastructure levy and the calculated extra fee
-    return 150000 + extraFee; // Assuming the standard infrastructure levy is 150000
-}*/
-
 // Calculates the gross weight fee based on the vehicle's gross weight
 double Sedan::calculateGrossWeightFee(double grossWeight, double costInsuranceFreight){
     if(grossWeight >= 1500 && grossWeight <= 2000){
@@ -126,5 +106,22 @@ double Sedan::getFinalPrice(double importDuty, double costInsuranceFreight, int 
 
 // Method to display detailed information about the sedan
 void Sedan::getDetails() {
-    // Detailed output logic here...
+    double infrastructureLevyFee, transportationModeFee, importDutyFee, valueAddedTaxFee, witholdingTaxFee, grossWeightFee,
+           engineCapacityFee, totalTaxes;
+
+    printf("Estate\n");
+    printf("The import duty fee is %.2lf\n", importDutyFee);
+    printf("The value added tax fee is %.2lf\n", valueAddedTaxFee);
+    printf("The withholding tax fee is %.2lf\n", witholdingTaxFee);
+    printf("The stamp duty fee is %.2lf\n", stampDuty);
+    printf("The form fees are %.2lf\n", formFees);
+    printf("The excise duty fee is %.2lf\n", exciseDuty);
+    printf("The plate system fee is %.2lf\n", plateSystem);
+    printf("The infrastructure levy fee is %.2lf\n", infrastructureLevyFee);
+    printf("The gross weight fee is %.2lf\n", grossWeightFee);
+    printf("The engine capacity fee is %.2lf\n", engineCapacityFee); 
+    printf("The transportation fee is %.2lf\n", transportationModeFee);
+    printf("The parking fee is %.2lf\n", parkingFee);
+    printf("Total Taxes: %.2lf\n", totalTaxes);
 }
+
