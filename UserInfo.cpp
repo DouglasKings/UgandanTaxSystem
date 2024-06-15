@@ -1,7 +1,7 @@
 #include <iostream>
 #include <iomanip> // For setting precision of floating-point numbers
-#include "UserInfo.h"// Presumably contains the UserInfo class definition
-#include "Vehicle.h"// Presumably contains the base Vehicle class definition
+#include "UserInfo.h"// contains the UserInfo class definition
+#include "Vehicle.h"// contains the base Vehicle class definition
 
 // Method to display user information and vehicle details
 void UserInfo::Display() {

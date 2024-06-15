@@ -9,12 +9,15 @@
 #include <limits>
 
 // Includes custom header files for classes used in the program
+#include "Vehicle.h"
+#include "UserInfo.h"
+#include "UserInfo.cpp"
 #include "Ambulance.h"
 #include "Estate.h"
 #include "Sedan.h"
 #include "SUV.h"
 #include "Trailer.h"
-#include "UserInfo.h"
+
 
 int main() {
     char choice; // Variable to store user choice

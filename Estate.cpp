@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Estate.h" // Include the Estate class header file.
+#include "Estate.h" // Includes the Estate class header file.
 
 // Set the vehicle type based on the given option.
 void Estate::setvehicleType(int option) {
